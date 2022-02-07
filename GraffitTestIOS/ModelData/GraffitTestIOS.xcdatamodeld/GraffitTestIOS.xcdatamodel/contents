@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CommandData" representedClassName=".CommandData" syncable="YES">
+        <attribute name="commandName" optional="YES" attributeType="String" defaultValueString="Название команды"/>
+        <attribute name="isDraft" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <relationship name="hero" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hero" inverseName="commandData" inverseEntity="Hero"/>
+    </entity>
+    <entity name="Hero" representedClassName=".Hero" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageHero" optional="YES" attributeType="String" defaultValueString="Icon"/>
+        <attribute name="nameHero" optional="YES" attributeType="String" defaultValueString="&quot;&quot;"/>
+        <attribute name="phraseHero" optional="YES" attributeType="String" defaultValueString="&quot;&quot;"/>
+        <relationship name="commandData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CommandData" inverseName="hero" inverseEntity="CommandData"/>
+        <relationship name="itemHero" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemHero" inverseName="hero" inverseEntity="ItemHero"/>
+    </entity>
+    <entity name="ItemHero" representedClassName=".ItemHero" syncable="YES">
+        <attribute name="damageWeapon" optional="YES" attributeType="String" defaultValueString="&quot;&quot;"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageWeapon" optional="YES" attributeType="String" defaultValueString="add"/>
+        <attribute name="nameWeapon" optional="YES" attributeType="String" defaultValueString="&quot;&quot;"/>
+        <relationship name="hero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="itemHero" inverseEntity="Hero"/>
+    </entity>
+    <entity name="ItemWeapon" representedClassName=".ItemWeapon" syncable="YES">
+        <attribute name="damageWeapon" optional="YES" attributeType="String" defaultValueString="&quot;&quot;"/>
+        <attribute name="imageWeapon" optional="YES" attributeType="String" defaultValueString="add"/>
+        <attribute name="nameWeapon" optional="YES" attributeType="String" defaultValueString="&quot;&quot;"/>
+    </entity>
+    <elements>
+        <element name="CommandData" positionX="-569.2421875" positionY="-135.50390625" width="128" height="74"/>
+        <element name="Hero" positionX="-350.3046875" positionY="-183.15234375" width="128" height="119"/>
+        <element name="ItemHero" positionX="-138.390625" positionY="-180.3046875" width="128" height="104"/>
+        <element name="ItemWeapon" positionX="-508.9375" positionY="78.43359375" width="128" height="88"/>
+    </elements>
+</model>
